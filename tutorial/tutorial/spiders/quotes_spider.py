@@ -19,4 +19,5 @@ class QuotesSpider(scrapy.Spider):
         filename = 'hero-kills-reptile-%s.html' % page
         with open(filename, 'wb') as f:
             f.write(response.body)
+            # f.write(response.css(".content a::attr(href)").extract())
         self.log('Saved file %s' % filename)
