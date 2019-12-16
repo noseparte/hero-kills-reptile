@@ -16,7 +16,24 @@
 [英雄杀素材地址](https://yxs.qq.com/webplat/info/news_version3/416/1620/1695/1696/1700/m1622/201312/241458.shtml)
 ## 爬取流程
 
+```
+hero-kills-reptile
+└─tutorial
+    ├─spiders
+    │  └─__pycache__
+    └─__pycache__
+```
+
 ## 项目部署
 
 ## 总结
+
+```markdown
+# 乱码问题 setting.py添加 但是没有生效
+FEED_EXPORT_ENCODING = 'utf-8'
+
+# pipelines.py对爬取结果进行解析，解耦
+# xpath、css俩种方式对response进行解析需要深入学习用法
+
+```
 
