@@ -1,7 +1,6 @@
 import scrapy
 from scrapy.selector import Selector
 
-
 class QuotesSpider(scrapy.Spider):
     name = "hero"
 
@@ -16,8 +15,8 @@ class QuotesSpider(scrapy.Spider):
         body = response.body
         q = Selector(text=body)
         items = q.css(".cont-box a::attr(href)").extract()
-        filename = 'hero-kills-reptile.html'
-        with open(filename, 'w', encoding='utf-8') as f:
+        filename = 'hero-kills-hero.html'
+        with open(filename, 'w') as f:
             for item in items:
                 self.log('results %s \n' % item)
                 f.write('https://yxs.qq.com' + item + '\n')

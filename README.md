@@ -11,7 +11,7 @@
 - **武将牌：** 阵营、头像、人物生平、主动被动技能、血量
 - **基本牌：** 图标、使用目标、使用效果、补充说明
 - **锦囊牌：** 图标、锦囊描述、使用时机、使用目标、补充说明
-- **锦囊牌：** 图标、攻击范围、武器技能、补充说明
+- **装备牌：** 图标、攻击范围、武器技能、补充说明
 
 [英雄杀素材地址](https://yxs.qq.com/webplat/info/news_version3/416/1620/1695/1696/1700/m1622/201312/241458.shtml)
 ## 爬取流程
@@ -20,8 +20,14 @@
 hero-kills-reptile
 └─tutorial
     ├─spiders
-    │  └─__pycache__
-    └─__pycache__
+    │  
+    |- quotes_spider.py 全部
+    |- card_spider.py 卡牌类型
+    |- hero_spider.py 武将牌
+    |- basic_spider.py 基本牌
+    |- sleeve_spider.py 锦囊牌
+    |- equip_spider.py 装备牌
+    └─
 ```
 
 ## 项目部署

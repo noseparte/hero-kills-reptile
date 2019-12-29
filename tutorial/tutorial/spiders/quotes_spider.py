@@ -15,8 +15,7 @@ class QuotesSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
-        page = response.url.split("/")[-2]
-        filename = 'hero-kills-reptile-%s.html' % page
+        filename = 'hero-kills-original.html'
         with open(filename, 'wb') as f:
             f.write(response.body)
             # f.write(response.css(".content a::attr(href)").extract())
