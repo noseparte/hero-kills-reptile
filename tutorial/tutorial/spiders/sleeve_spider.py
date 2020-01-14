@@ -1,12 +1,8 @@
 import scrapy
 from scrapy.selector import Selector
-import sys
+
 
 class CardSpider(scrapy.Spider):
-    name = "card"
-    reload(sys)
-    # sys.setdefaultencoding('gb2312')
-    sys.setdefaultencoding('utf-8')
 
     def start_requests(self):
         urls = [
@@ -28,5 +24,3 @@ class CardSpider(scrapy.Spider):
                 name = item.encode('utf-8')
                 self.log('result %s \n' % name)
                 f.write(name + '\n')
-
-
