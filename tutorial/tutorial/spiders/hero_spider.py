@@ -1,6 +1,7 @@
 import scrapy
 from scrapy.selector import Selector
 
+
 class QuotesSpider(scrapy.Spider):
     name = "hero"
 

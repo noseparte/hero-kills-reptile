@@ -1,5 +1,4 @@
 # encoding:UTF-8
-from bs4 import BeautifulSoup
 import scrapy
 from scrapy.selector import Selector
 import sys
@@ -69,6 +68,6 @@ class CardSpider(scrapy.Spider):
         with open(filename, 'w') as f:
             for item in items:
                 # print(chardet.detect(item))
-                name = item.encode('utf-8')
+                name = item
                 self.log('result %s \n' % name)
                 f.write(name + '\n')
