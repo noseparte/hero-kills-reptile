@@ -94,7 +94,7 @@ ROBOTSTXT_OBEY = True
 
 
 ITEM_PIPELINES = {
-    'tutorial.pipelines.CardPipeline': 300
+    'tutorial.pipelines.HeroPipeline': 100
 }
 
 MONGO_URI = "127.0.0.1"

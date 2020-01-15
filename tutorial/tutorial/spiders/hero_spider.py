@@ -3,6 +3,7 @@ import sys
 
 import redis
 import scrapy
+import time
 from scrapy import Request
 from scrapy.selector import Selector
 from scrapy.utils.project import get_project_settings
@@ -73,7 +74,7 @@ class HeroSpider(scrapy.Spider):
             biography = []
             biographyLst = q.css(".hero-intro .more-intro p::text").extract()
             for l in biographyLst:
-                print("l==============================" + l)
+                # print("l==============================" + l)
                 l = str(l).strip()
                 biography.append(l)
             item['roll_img'] = roll_img
@@ -92,15 +93,28 @@ class HeroSpider(scrapy.Spider):
             #     'rules': rules,
             #     'biography': biography
             # }
+            # item = HeroItem()
             result = str(item)
-            r.sadd(key + name, result)
-            yield item
+            if(r.sadd(key + name, result)) != 1:
+                yield item
+            # r.sadd(key + name, result)
+            time.sleep(5)
             yield Request(url, callback=self.parse)
-            # pass
+            # item = dict(item, **response.meta)
+            # yield Request(url, callback=self.parse_item, meta=meta)
+        # pass
 
-    # def parse_item(self, response):
-    #     item = HeroItem()
-    #     self.log("item前 ================================ %s " % item)
-    #     item = dict(item, **response.meta)
-    #     self.log("item后 ================================ %s " % item)
-    #     yield item
+    def parse_item(self, response):
+        item = HeroItem()
+        item = dict(item, **response.meta)
+        # item['roll_img'] = response.meta.roll_img
+        # item['blood'] = response.meta.blood
+        # item['Identity'] = response.meta.Identity
+        # item['name'] = response.meta.name
+        # item['skills'] = response.meta.skills
+        # item['rules'] = response.meta.rules
+        # item['biography'] = response.meta.biography
+        # self.log("item前 ================================ %s " % item)
+        # item = dict(item, **response.meta)
+        # self.log("item后 ================================ %s " % item)
+        yield item
