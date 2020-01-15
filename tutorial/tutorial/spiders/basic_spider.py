@@ -22,4 +22,4 @@ class QuotesSpider(scrapy.Spider):
                 # print(chardet.detect(item))
                 name = item.encode('utf-8')
                 self.log('result %s \n' % name)
-                f.write('https' + name + '\n')
+                f.write('http:' + name + '\n')
