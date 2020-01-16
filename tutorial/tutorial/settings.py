@@ -100,6 +100,7 @@ MONGO_DATABASE = "hero-kill"
 
 REDIS_CARD_KEY = "cardTypes"
 REDIS_HERO_KEY = "hero_name:"
+REDIS_BASIC_KEY = "basicCards"
 
 # REDIS
 REDIS_HOST = "127.0.0.1"
