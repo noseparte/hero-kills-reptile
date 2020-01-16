@@ -12,6 +12,12 @@ settings = get_project_settings()
 class CardSpider(scrapy.Spider):
     name = "card"
 
+    custom_settings = {
+        "ITEM_PIPELINES": {
+            'tutorial.pipelines.CardPipeline': 10
+        }
+    }
+
     def start_requests(self):
         urls = [
             'https://yxs.qq.com/webplat/info/news_version3/416/1620/1695/1696/1700/m1622/201204/63819.shtml'
@@ -45,4 +51,3 @@ class CardSpider(scrapy.Spider):
             item['type'] = v
             self.log('result %s \n' % item)
             yield item
-

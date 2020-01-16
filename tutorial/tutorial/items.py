@@ -31,3 +31,13 @@ class HeroItem(scrapy.Item):
     rules = scrapy.Field()  # 规则
     biography = scrapy.Field()  # 人物生平
     pass
+
+
+class BasicItem(scrapy.Item):
+    # define the fields for your item here like:
+    image = scrapy.Field()  # 头像
+    use_time = scrapy.Field()  # 使用时机
+    use_target = scrapy.Field()  # 使用目标
+    use_effect = scrapy.Field()  # 使用效果
+    more_info = scrapy.Field()  # 补充说明
+    pass

@@ -14,6 +14,8 @@ BOT_NAME = 'tutorial'
 SPIDER_MODULES = ['tutorial.spiders']
 NEWSPIDER_MODULE = 'tutorial.spiders'
 
+LOG_LEVEL = 'INFO'
+
 FEED_EXPORT_ENCODING = 'utf-8'
 # FEED_EXPORT_ENCODING = 'gb18030'
 # FEED_EXPORT_ENCODING = 'utf-8-sig'
@@ -92,10 +94,6 @@ ROBOTSTXT_OBEY = True
 # HTTPCACHE_IGNORE_HTTP_CODES = []
 # HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-
-ITEM_PIPELINES = {
-    'tutorial.pipelines.HeroPipeline': 100
-}
 
 MONGO_URI = "127.0.0.1"
 MONGO_DATABASE = "hero-kill"
