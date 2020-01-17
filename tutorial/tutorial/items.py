@@ -33,11 +33,37 @@ class HeroItem(scrapy.Item):
     pass
 
 
+# 基本牌
 class BasicItem(scrapy.Item):
     # define the fields for your item here like:
+    name = scrapy.Field()  # 名称
     image = scrapy.Field()  # 头像
     use_time = scrapy.Field()  # 使用时机
     use_target = scrapy.Field()  # 使用目标
     use_effect = scrapy.Field()  # 使用效果
+    more_info = scrapy.Field()  # 补充说明
+    pass
+
+
+# 锦囊牌
+class SleeveItem(scrapy.Item):
+    # define the fields for your item here like:
+    name = scrapy.Field()  # 名称
+    image = scrapy.Field()  # 头像
+    sleeve_describe = scrapy.Field()  # 使用效果
+    use_time = scrapy.Field()  # 使用时机
+    use_target = scrapy.Field()  # 使用目标
+    more_info = scrapy.Field()  # 补充说明
+    pass
+
+
+# 装备牌
+class EquipItem(scrapy.Item):
+    # define the fields for your item here like:
+    name = scrapy.Field()  # 名称
+    image = scrapy.Field()  # 头像
+    sleeve_describe = scrapy.Field()  # 使用效果
+    use_time = scrapy.Field()  # 使用时机
+    use_target = scrapy.Field()  # 使用目标
     more_info = scrapy.Field()  # 补充说明
     pass

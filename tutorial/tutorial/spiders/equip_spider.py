@@ -2,14 +2,17 @@ import scrapy
 from scrapy.selector import Selector
 
 
-class CardSpider(scrapy.Spider):
-
-    def start_requests(self):
-        urls = [
-            'https://yxs.qq.com/webplat/info/news_version3/416/1620/1695/1696/1700/m1622/201204/63819.shtml'
-        ]
-        for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse)
+# 装备牌
+class EquipSpider(scrapy.Spider):
+    allowed_domains = ["yxs.qq.com"]
+    custom_settings = {
+        "ITEM_PIPELINES": {
+            'tutorial.pipelines.EquipPipeline': 50
+        }
+    }
+    start_urls = [
+        'https://yxs.qq.com/webplat/info/news_version3/416/1620/1695/1699/m1628/201203/56651.shtml?3'
+    ]
 
     def parse(self, response):
         encoding = response.encoding

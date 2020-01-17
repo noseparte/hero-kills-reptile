@@ -22,7 +22,7 @@ class CardPipeline(object):
     def process_item(self, item, spider):
         client = pymongo.MongoClient(host="127.0.0.1", port=27017)
         db = client['hero-kill']
-        collection = db['card']
+        collection = db['hk_card']
         collection.insert_one(dict(item))
         client.close()
         return item
@@ -33,7 +33,7 @@ class HeroPipeline(object):
     def process_item(self, item, spider):
         client = pymongo.MongoClient(host="127.0.0.1", port=27017)
         db = client['hero-kill']
-        collection = db['hero']
+        collection = db['hk_hero_card']
         collection.insert_one(dict(item))
         client.close()
         return item
@@ -44,7 +44,18 @@ class BasicPipeline(object):
     def process_item(self, item, spider):
         client = pymongo.MongoClient(host="127.0.0.1", port=27017)
         db = client['hero-kill']
-        collection = db['basic']
+        collection = db['hk_basic_card']
+        collection.insert_one(dict(item))
+        client.close()
+        return item
+
+
+class SleevePipeline(object):
+
+    def process_item(self, item, spider):
+        client = pymongo.MongoClient(host="127.0.0.1", port=27017)
+        db = client['hero-kill']
+        collection = db['hk_sleeve_card']
         collection.insert_one(dict(item))
         client.close()
         return item

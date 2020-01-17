@@ -42,6 +42,10 @@ class BasicSpider(scrapy.Spider):
             img = v.css('img::attr(src)').extract_first()
             if img is None:
                 img = ""
+                name = ""
+            else:
+                name = img.split("/")[-1].split('.')[0]
+                item['name'] = name
             item['image'] = host + img
             # self.logger.info("item ===========   %s" % item)
             table = v.css('p + table')
@@ -55,5 +59,5 @@ class BasicSpider(scrapy.Spider):
                 item['use_effect'] = props[2].css('td p::text').extract()
                 item['more_info'] = props[3].css('td p::text').extract()
                 result = str(item)
-                r.sadd(key, result)
+                r.sadd(key + name, result)
                 yield item

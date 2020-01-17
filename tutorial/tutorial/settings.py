@@ -98,9 +98,11 @@ ROBOTSTXT_OBEY = True
 MONGO_URI = "127.0.0.1"
 MONGO_DATABASE = "hero-kill"
 
-REDIS_CARD_KEY = "cardTypes"
+REDIS_CARD_KEY = "card_types"
 REDIS_HERO_KEY = "hero_name:"
-REDIS_BASIC_KEY = "basicCards"
+REDIS_BASIC_KEY = "basic_card:"
+REDIS_SLEEVE_KEY = "sleeve_card:"
+REDIS_EQUIP_KEY = "equip_card:"
 
 # REDIS
 REDIS_HOST = "127.0.0.1"
