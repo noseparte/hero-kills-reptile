@@ -46,9 +46,10 @@ class HeroSpider(scrapy.Spider):
     def parse_item(self, response):
         redis_host = settings.get('REDIS_HOST')
         redis_port = settings.get('REDIS_PORT')
+        redis_db = settings.get('REDIS_DB')
         key = settings.get('REDIS_HERO_KEY')
         # 初始化redis
-        pool = redis.ConnectionPool(host=redis_host, port=redis_port, decode_responses=True)
+        pool = redis.ConnectionPool(host=redis_host, port=redis_port, db=redis_db, decode_responses=True)
         r = redis.Redis(connection_pool=pool)
         item = HeroItem()
         q = response.css

@@ -59,3 +59,13 @@ class SleevePipeline(object):
         collection.insert_one(dict(item))
         client.close()
         return item
+
+class EquipPipeline(object):
+
+    def process_item(self, item, spider):
+        client = pymongo.MongoClient(host="127.0.0.1", port=27017)
+        db = client['hero-kill']
+        collection = db['hk_equip_card']
+        collection.insert_one(dict(item))
+        client.close()
+        return item

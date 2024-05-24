@@ -3,8 +3,9 @@ import scrapy
 from scrapy.selector import Selector
 import sys
 import redis
-from tutorial.items import CardItem
 from scrapy.utils.project import get_project_settings
+
+from tutorial.items import CardItem
 
 settings = get_project_settings()
 
@@ -35,8 +36,9 @@ class CardSpider(scrapy.Spider):
 
         redis_host = settings.get('REDIS_HOST')
         redis_port = settings.get('REDIS_PORT')
+        redis_db = settings.get('REDIS_DB')
         # 初始化redis
-        pool = redis.ConnectionPool(host=redis_host, port=redis_port, decode_responses=True)
+        pool = redis.ConnectionPool(host=redis_host, port=redis_port, db=redis_db, decode_responses=True)
         r = redis.Redis(connection_pool=pool)
         key = settings.get('REDIS_CARD_KEY')
 
