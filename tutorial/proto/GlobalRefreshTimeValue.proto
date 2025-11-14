@@ -1,0 +1,11 @@
+syntax = "proto3";  // 指定使用 proto3 语法
+package protobuf;
+option java_package = "net.im30.aps.model.protobuf";
+
+message GlobalRefreshTimeValue {
+	int32 type = 1;
+	int32 status = 2;
+	int64 time = 3;
+	string param = 4;
+	int64 new_status = 5;
+}
